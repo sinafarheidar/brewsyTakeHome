@@ -10,12 +10,11 @@ function Home() {
 
     const handleClick = (name, price) => {
         setCartItems(cartItems.concat({name, price}))
-        console.log(cartItems)
     }
 
     return (
         <div>
-            <Nav />
+            <Nav items={cartItems}/>
 
             <br />
 

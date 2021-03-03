@@ -3,9 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import Badge from '@material-ui/core/Badge';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+
+import CartModal from './CartModal'
+import CartDrawer from './CartDrawer'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,27 +21,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Nav({cartItems}) {
+function Nav({items}) {
     const classes = useStyles();
 
 
  
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
+    <div className={classes.root} >
+      <AppBar position="static" style={{borderRadius: '25px'}}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             Cool Project!
           </Typography>
-          {cartItems ? (
-            <Badge badgeContent={cartItems.length}>
+          <CartModal cartItems={items} />
+            <Badge badgeContent={items.length}>
             <AddShoppingCartIcon />
           </Badge>
-          ) : (
-            <Badge badgeContent={100} >
-            <AddShoppingCartIcon />
-          </Badge>
-          )}
           
         </Toolbar>
       </AppBar>

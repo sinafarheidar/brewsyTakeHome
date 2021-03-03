@@ -7,9 +7,6 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
-  root: {
-    minWidth: 275,
-  },
   bullet: {
     display: 'inline-block',
     margin: '0 2px',
@@ -23,11 +20,11 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Item({itemName, itemPrice, handleClick}) {
+export default function CartItem({itemName, itemPrice, handleClick}) {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root} variant="outlined" style={{ borderRadius: '25px' }}>
+    <Card className={classes.root} variant="outlined" style={{ borderRadius: '25px', width: '80%', height: '100%' }}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           Product: {itemName}
@@ -42,7 +39,7 @@ export default function Item({itemName, itemPrice, handleClick}) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" color='primary' variant='contained' onClick={handleClick}>Add to Cart</Button>
+        <Button size="small" color='primary' variant='contained' onClick={handleClick}>Delete From Cart</Button>
       </CardActions>
     </Card>
   );
